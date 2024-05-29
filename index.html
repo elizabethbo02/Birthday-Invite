@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1 class="white-text">Покана</h1>
-        <h2 class="gold-text">от Алекс</h2>
+        <h2 class="gold-text" id="person-name">от Алекс</h2>
 
         <div class="age-container">
             <img src="images/Age circle.png" class="birthday-letters" alt="Надпис рожден ден и години" />
@@ -18,29 +18,29 @@
         </div>
 
         <p class="gold-text"><strong>Кога?</strong></p>
-        <p class="white-text">01.06.2024</p>
+        <p class="white-text answer">01.06.2024</p>
 
         <div class="where-container">
             <p class="gold-text"><strong>Къде?</strong></p>
-            <p class="white-text">клуб Мегами, София</p>
+            <p class="white-text answer">клуб Мегами, София</p>
 
-            <iframe width="600" height="450" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=%D0%BC%D0%B5%D0%B3%D0%B0%D0%BC%D0%B8%20&key=AIzaSyA-vT6b8uTp6XlCYBXQjFWJMVudaKXwRGo"></iframe>
+            <iframe width="600" height="450" loading="lazy" class="answer" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=%D0%BC%D0%B5%D0%B3%D0%B0%D0%BC%D0%B8%20&key=AIzaSyA-vT6b8uTp6XlCYBXQjFWJMVudaKXwRGo"></iframe>
         </div>
         
         <div class="form-container">
             <p class="gold-text"><strong>Ще присъствам?</strong></p>
             <form id="rsvp-form" class="white-text">
-                <label>
-                    <input type="radio" name="rsvp" value="Да" required> Да
+                <label class="form-control">
+                    <input type="radio" name="rsvp" value="Да" required><p class="white-text">Да</p> 
                 </label>
-                <label>
-                    <input type="radio" name="rsvp" value="Не" required> Не
+                <label class="form-control">
+                    <input type="radio" name="rsvp" value="Не" required><p class="white-text">Не</p>
                 </label>
-                <br><br>
-                <button type="submit">Изпрати</button>
+
+                <button type="submit" class="submit-btn answer"><p class="submit-text white-text">Изпрати</p></button>
             </form>
             <div class="thank-you">
-                <p class="gold-text">Благодаря за отговора!</p>
+                <p class="gold-text in-view">Благодаря за отговора!</p>
             </div>
         </div>
     </div>

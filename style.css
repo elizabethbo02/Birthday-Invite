@@ -9,6 +9,11 @@ body {
     background-attachment: fixed;
 }
 
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}}
+
 @font-face {
     font-family: headlineFont;
     src: url(pt-serif.italic.ttf);
@@ -19,11 +24,24 @@ body {
     src: url(coolvetica.condensedrg-regular.otf);
 }
 
+@keyframes fade {
+    0% {
+        opacity: 0;
+        transform: translate(0, 20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
 h1 {
     font-size: 90px;
     letter-spacing: 5px;
     margin: 15px 0;
     font-family: headlineFont;
+    font-style: italic;
 }
 
 h2 {
@@ -35,7 +53,7 @@ h2 {
 p {
     font-size: 35px;
     margin: 15px 0px;
-    letter-spacing: 2px;
+    letter-spacing: 2.1px;
 }
 
 label {
@@ -46,22 +64,31 @@ label {
     color: #D7D7D7;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    .in-view {
+        animation: fade 0.8s 0.8s both;
+    }
+}
+
+
 .gold-text {
     color: #C29061;
     font-family: headlineFont;
 }
 
+#person-name {
+    font-family: mainText;
+    font-weight: 200;
+}
 
 .container {
-    /*height: 85vh;*/
     max-width: 65vw;
     margin-top: 30px;
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
-    padding: 50px;
+    padding: 70px;
     border: 8px solid #C29061;
-    /*border-radius: 10px;*/
     background-color: #1E1E1E;
     overflow-y: scroll;
     scrollbar-width: none;
@@ -74,7 +101,7 @@ label {
 
 iframe {
     border: 8px solid #C29061;
-    width: 60%;
+    max-width: 380px;
     height: 300px;
     margin: 15px 0;
 }
@@ -83,7 +110,7 @@ iframe {
     position: relative;
     display: flex;
     justify-content: center;
-    margin: 50px 0px;
+    margin: 70px 0px;
 }
 
 .birthday-letters {
@@ -100,21 +127,85 @@ iframe {
     }
 }    
 
-
 .age-num {
-    height: 180px;
+    height: 170px;
     position: absolute;
     top: 115px;
 }
 
 .where-container {
-    margin: 50px 0px;
+    margin: 70px 0px;
 }
 
 .form-container {
-    min-height: 190px;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65px;
+}
+
+#rsvp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input:where([type="radio"]) {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    margin: calc(0.75em - 11px) 0.25rem 0 0;
+    vertical-align: top;
+    border: 2px solid #C29061;
+    border-radius: 4px;
+    background: #1E1E1E no-repeat center center;
+}
+
+input[type="radio"] {
+    border-radius: 50%;
+}
+
+input:where([type="radio"]):where(:active:not(:disabled), :focus) {
+    border-color: #C29061;
+    outline: none;
+}
+
+input:where([type="radio"]):disabled {
+    background: #eee;
+}
+
+input[type="radio"]:checked {
+    background-color: #C29061;
+    border: 2px solid #ffffff;
+}
+
+.submit-btn {
+    margin: 15px 0px;
+    padding: 0px 15px;
+    padding: 0px 15px;
+    border: 5px solid #C29061;
+    background: #1E1E1E;
+}
+
+.submit-btn:active{
+    background-color: #C29061;
+    border: 5px solid #ffffff;
+}
+
+.submit-text {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .thank-you {
     display: none;
 }
+
